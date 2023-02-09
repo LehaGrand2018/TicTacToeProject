@@ -16,58 +16,59 @@
                 <h2 class="menu__text">Pick who goes first?</h2>
 
                 <div class="menu__buttons">
-                    <button class="button button__cross"><img class="button__icon" src="./img/cross.svg" alt="cross"></button>
-                    <button class="button button__zero"><img class="button__icon" src="./img/zero.svg" alt="cross"></button>
+                    <button class="menu__button button__cross"><img class="button__icon" src="./img/cross.svg" alt="cross"></button>
+                    <button class="menu__button button__zero"><img class="button__icon" src="./img/zero.svg" alt="cross"></button>
                 </div>
             </div> <!-- Menu -->
 
-            <div class="game"><!-- Game -->
+            <div class="game game_hide"><!-- Game -->
                 <div class="score">
-                    <p class="score_text"><span class="score__first-player">0</span> : <span class="score__second-player">0</span></p>
+                    <p class="score_text"><span class="score__1-player">0</span> : <span class="score__2-player">0</span></p>
                 </div>
-                <h1 class="game__inner">Player <span class="inner__first-player">1</span>’s Turn</h1>
+                <h1 class="game__inner">Player <span class="inner__player">1</span>’s Turn</h1>
 
                 <div class="field">
-                    <div class="field__item item__1">
+                    <button class="field__item item__0" value="0">
                         <img class="item__sign item__cross" src="./img/cross.svg" alt="">
                         <img class="item__sign item__zero" src="./img/zero.svg" alt="">
-                    </div>
-                    <div class="field__item item__2">
+                    </button>
+                    <button class="field__item item__1" value="1">
                         <img class="item__sign item__cross" src="./img/cross.svg" alt="">
                         <img class="item__sign item__zero" src="./img/zero.svg" alt="">
-                    </div>
-                    <div class="field__item item__3">
+                    </button>
+                    <button class="field__item item__2" value="2">
                         <img class="item__sign item__cross" src="./img/cross.svg" alt="">
                         <img class="item__sign item__zero" src="./img/zero.svg" alt="">
-                    </div>
-                    <div class="field__item item__4">
+                    </button>
+                    <button class="field__item item__3" value="3">
                         <img class="item__sign item__cross" src="./img/cross.svg" alt="">
                         <img class="item__sign item__zero" src="./img/zero.svg" alt="">
-                    </div>
-                    <div class="field__item item__5">
+                    </button>
+                    <button class="field__item item__4" value="4">
                         <img class="item__sign item__cross" src="./img/cross.svg" alt="">
                         <img class="item__sign item__zero" src="./img/zero.svg" alt="">
-                    </div>
-                    <div class="field__item item__6">
+                    </button>
+                    <button class="field__item item__5" value="5">
                         <img class="item__sign item__cross" src="./img/cross.svg" alt="">
                         <img class="item__sign item__zero" src="./img/zero.svg" alt="">
-                    </div>
-                    <div class="field__item item__7">
+                    </button>
+                    <button class="field__item item__6" value="6">
                         <img class="item__sign item__cross" src="./img/cross.svg" alt="">
                         <img class="item__sign item__zero" src="./img/zero.svg" alt="">
-                    </div>
-                    <div class="field__item item__8">
+                    </button>
+                    <button class="field__item item__7" value="7">
                         <img class="item__sign item__cross" src="./img/cross.svg" alt="">
                         <img class="item__sign item__zero" src="./img/zero.svg" alt="">
-                    </div>
-                    <div class="field__item item__9">
+                    </button>
+                    <button class="field__item item__8" value="8">
                         <img class="item__sign item__cross" src="./img/cross.svg" alt="">
                         <img class="item__sign item__zero" src="./img/zero.svg" alt="">
-                    </div>
+                    </button>
                     
                 </div>
             </div><!-- Game -->
         </div><!-- App -->
     </div>
+    <script src="./index.js"></script>
 </body>
 </html>

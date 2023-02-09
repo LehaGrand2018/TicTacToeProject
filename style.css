@@ -81,7 +81,11 @@ body{
     position: relative;
     top: 0;
     left: 0;
-    display: none;
+    /* display: absolute; */
+    /* display: none; */
+}
+.menu.menu_hide{
+  display: none;
 }
 .menu_symbols{
     /* overflow:hidden; */
@@ -120,7 +124,7 @@ body{
     margin-left: -40%;
 }
 
-.button{
+.menu__button{
     display: block;
     /* width: 38%; */
     width: 143px;
@@ -138,8 +142,11 @@ body{
     top: 0;
     left: 0;
     /* display: none; */
+    /* display: block; */
 } 
-
+.game.game_hide{
+  display: none;
+}
 .score{
     position: absolute;
     top: 12%;
@@ -222,14 +229,18 @@ body{
     left: 10%;
     width: 80%;
     height: 80%;
+    display: none;
 }
 .item__cross{
     top: 13%;
     left: 13%;
     width: 74%;
     height: 74%;
+    display: none;
 }
-
+.item__sign.active{
+  display: block;
+}
 /* .item__1 .item__cross{
     display: none;
 }
@@ -239,6 +250,6 @@ body{
 .item__2 .item__zero{
     display: none;
 } */
-.item__zero{
+/* .item__zero{
     display: none;
-}
+} */
