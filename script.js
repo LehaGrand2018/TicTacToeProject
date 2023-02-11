@@ -1,11 +1,12 @@
 'use strict'
-import {updateField, resetField, setGameData, getPosition, setCell, signShow, checkLine, changeGameStatus, isAllOcupied, moveInvert, playerInvert, showGameInnerWinner, showGameButtons, hideGameButtons, isDraw, changeScore, hideGameInnerWinner, resetAllSettings, startGame, restoreDefaultSettings } from './functions.js';
+import {updateField, resetField, showScore, setStartPlayer, setGameData, getPosition, setCell, signShow, checkLine, changeGameStatus, isAllOcupied, moveInvert, playerInvert, showGameInnerWinner, showGameButtons, hideGameButtons, isDraw, changeScore, hideGameInnerWinner, resetAllSettings, startNewGame, startGame, restoreDefaultSettings } from './functions.js';
 export const gameData = {
-    firstPlayerScore : "0",
-    secondPlayerScore: "0",
+    firstPlayerScore : 0,
+    secondPlayerScore: 0,
     currentSession: {
-        gameStatus: 'active',
+        gameStatus: "active",
         player: "1",
+        startPlayer: "undefined",
         move: "undefined",
         field: ['undefined', 'undefined', 'undefined', 'undefined', 'undefined', 'undefined', 'undefined', 'undefined', 'undefined'],
    },
@@ -53,6 +54,7 @@ menuButtons.forEach(button => {
         console.log(button.classList.contains('button__cross'));
 
         setGameData(button, gameData);
+        setStartPlayer(button,gameData)
     })
     
 })
@@ -80,10 +82,10 @@ fieldButtons.forEach((button) => {
                 playerInvert(gameData);
             } else {
                 changeGameStatus(gameData, 'stopped');
+                changeScore(gameData, combinations);
                 showGameInnerWinner(gameData);
                 console.log('GameData: ');
                 console.log(gameData);
-                changeScore(gameData, combinations);
                 showGameButtons();
             }
         }
@@ -101,9 +103,11 @@ fieldButtons.forEach((button) => {
 const continueGameButton = document.querySelector('.game-button__continue');
 
 continueGameButton.addEventListener("click", () => {
+    startGame(gameData);
+    gameData.currentSession.move = gameData.currentSession.startPlayer;
+
     hideGameButtons();
     hideGameInnerWinner()
-    startGame(gameData);
 })
 
 
@@ -117,8 +121,8 @@ menuGameButton.addEventListener("click", () => {
     const game = document.querySelector('.game');
     menu.classList.remove("menu_hide");
     game.classList.add("game_hide");
-    resetAllSettings(gameData);
-    hideGameInnerWinner();
+    startNewGame(gameData);
+    
 })
 
 

@@ -40,6 +40,13 @@ export function changeGameStatus (gameData, status) {
     gameData.currentSession.gameStatus = status;
 }
 
+export function setStartPlayer (button, gameData) {
+    if (button.classList.contains('button__cross')) {
+        gameData.currentSession.startPlayer = 'cross';
+    } else {
+        gameData.currentSession.startPlayer= 'zero';
+    }
+}
 export function setGameData (button, gameData) {
     changeGameStatus(gameData, 'active');
     if (button.classList.contains('button__cross')) {
@@ -49,6 +56,7 @@ export function setGameData (button, gameData) {
         gameData.currentSession.move = 'zero';
         console.log('Set zero')
     }
+    // setStartPlayer(button,gameData);
 }
 
 export function getPosition (button) {
@@ -72,14 +80,13 @@ export function changeScore (gameData, combinations) {
         return;
     }
     
-    const scoreText = document.querySelector(`.score__${gameData.currentSession.player}-player`);
+    // const scoreText = document.querySelector(`.score__${gameData.currentSession.player}-player`);
 
-    console.log('Score: ', scoreText);
-    scoreText.textContent++;
-    console.log(gameData);
+    // console.log('Score: ', scoreText);
+    // scoreText.textContent++;
+    // console.log(gameData);
 
-    if(!isDraw(gameData, combinations)) {
-        switch (gameData.currentSession.player) {
+    switch (gameData.currentSession.player) {
         case '1':
             gameData.firstPlayerScore+=1;
             break;
@@ -88,8 +95,8 @@ export function changeScore (gameData, combinations) {
             break;
         default:
             break;
-        }
-    }    
+    }
+    
 }
 
 export function signShow(move, button) {
@@ -146,7 +153,6 @@ export function showGameInnerWinner (gameData) {
     const gameInnerWinner = document.querySelector('.game-inner__win');
     const gameInnerDraw = document.querySelector('.game-inner__draw');
     const gameInner = document.querySelector('.game__inner');
-
     if (isAllOcupied(gameData)) {
         gameInnerWinner.classList.add('hide');
         gameInner.classList.add('hide'); 
@@ -158,7 +164,7 @@ export function showGameInnerWinner (gameData) {
      }
 
     
-    
+     showScore(gameData);
 }
 
 export function showGameButtons () {
@@ -210,21 +216,40 @@ export function restoreDefaultSettings(gameData) {
 }
 
 export function resetAllSettings (gameData) {
-    restoreDefaultSettings(gameData);
-    gameData.firstPlayerScore = '0';
-    gameData.secondPlayerScore = '0';
+    // restoreDefaultSettings(gameData);
+    gameData.firstPlayerScore = 0;
+    gameData.secondPlayerScore = 0;
+}
+
+export function startNewGame (gameData) {
+    resetAllSettings(gameData);
     startGame(gameData);
+    console.log("Start New Game");
 }
 
 export function startGame (gameData) {
+    
     resetField(gameData);
     restoreDefaultSettings(gameData);
-    console.log("Start New Game");
+    hideGameInnerWinner();
+    showScore(gameData);
+    console.log("Start Game");
+    console.log(gameData.currentSession.field)
     
 }
 
 export function showScore(gameData) {
-    
+    for(let i = 1; i <= 2; i++){
+        const scoreText = document.querySelector(`.score__${i}-player`);
+        switch (i) {
+            case 1:
+                scoreText.textContent = gameData.firstPlayerScore;
+                break;
+            case 2:
+                scoreText.textContent = gameData.secondPlayerScore;
+                break;
+        }
+    }
 }
 
 /* GameEndButtons */
