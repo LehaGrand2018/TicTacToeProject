@@ -22,10 +22,12 @@
             </div> <!-- Menu -->
 
             <div class="game game_hide"><!-- Game -->
-                <div class="score">
-                    <p class="score_text"><span class="score__1-player">0</span> : <span class="score__2-player">0</span></p>
+                <div class="score game__lable">
+                    <p class="score_text lable__text"><span class="score__1-player">0</span> : <span class="score__2-player">0</span></p>
                 </div>
                 <h1 class="game__inner">Player <span class="inner__player">1</span>’s Turn</h1>
+                <h1 class="game__inner game-inner__win hide">Player <span class="inner__player">1</span>’s win!</h1>
+                <h1 class="game__inner game-inner__draw hide">Draw!</h1>
 
                 <div class="field">
                     <button class="field__item item__0" value="0">
@@ -64,11 +66,17 @@
                         <img class="item__sign item__cross" src="./img/cross.svg" alt="">
                         <img class="item__sign item__zero" src="./img/zero.svg" alt="">
                     </button>
-                    
+                </div>
+
+                <div class="game__buttons">
+                    <button class="game__button game__lable game-button__continue"><span class="game-button__text">Continue</span></button>
+                    <button class="game__button game__lable game-button__menu"><span class="game-button__text">Menu</span></button>
                 </div>
             </div><!-- Game -->
         </div><!-- App -->
     </div>
-    <script src="./index.js"></script>
+    <script src="./script.js" type = "module"></script>
+    <!-- <script src="./functions.js" type="module"></script> -->
+    <!-- <script src="./index-work.js"></script> -->
 </body>
 </html>
