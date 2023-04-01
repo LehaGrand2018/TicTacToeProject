@@ -1,5 +1,5 @@
 'use strict'
-import {updateField, resetField, showScore, setStartPlayer, setGameData, getPosition, setCell, signShow, checkLine, changeGameStatus, isAllOcupied, moveInvert, playerInvert, showGameInnerWinner, showGameButtons, hideGameButtons, isDraw, changeScore, hideGameInnerWinner, resetAllSettings, startNewGame, startGame, restoreDefaultSettings } from './functions.js';
+import {updateField, resetField, showScore, setStartPlayer, setGameData, getPosition, setCell, signShow, checkLine, changeGameStatus, isAllOcupied, moveInvert, playerInvert, showGameInnerWinner, showGameButtons, hideGameButtons, isDraw, changeScore, hideGameInnerWinner, resetAllSettings, startNewGame, startGame, restoreDefaultSettings, showTurnPlayer } from './functions.js';
 export const gameData = {
     firstPlayerScore : 0,
     secondPlayerScore: 0,
@@ -16,7 +16,7 @@ export const gameData = {
 
 console.log("It's a TicTacToe");
 
-
+ 
 
 
 const field = new Array(9);
@@ -83,7 +83,7 @@ fieldButtons.forEach((button) => {
             } else {
                 changeGameStatus(gameData, 'stopped');
                 changeScore(gameData, combinations);
-                showGameInnerWinner(gameData);
+                showGameInnerWinner(gameData, combinations);
                 console.log('GameData: ');
                 console.log(gameData);
                 showGameButtons();

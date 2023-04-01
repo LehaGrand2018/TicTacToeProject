@@ -149,11 +149,11 @@ export function playerInvert (gameData) {
     console.log("Player: ", gameInner.textContent);
 }
 
-export function showGameInnerWinner (gameData) {
+export function showGameInnerWinner (gameData, combinations) {
     const gameInnerWinner = document.querySelector('.game-inner__win');
     const gameInnerDraw = document.querySelector('.game-inner__draw');
     const gameInner = document.querySelector('.game__inner');
-    if (isAllOcupied(gameData)) {
+    if (isDraw(gameData, combinations)) {
         gameInnerWinner.classList.add('hide');
         gameInner.classList.add('hide'); 
         gameInnerDraw.classList.remove('hide');
@@ -226,13 +226,17 @@ export function startNewGame (gameData) {
     startGame(gameData);
     console.log("Start New Game");
 }
-
+export function showTurnPlayer (gameData) {
+    const player = document.querySelector('.inner__player');
+    player.textContent = gameData.currentSession.player;
+}
 export function startGame (gameData) {
     
     resetField(gameData);
     restoreDefaultSettings(gameData);
     hideGameInnerWinner();
     showScore(gameData);
+    showTurnPlayer(gameData);
     console.log("Start Game");
     console.log(gameData.currentSession.field)
     
